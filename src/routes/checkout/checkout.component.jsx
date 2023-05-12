@@ -18,8 +18,8 @@ const Checkout = () => {
     <div className='checkout-container'>
       <div className='checkout-header'>
         {headers.map((header, index) => (
-          <div>
-            <span key={`header-${index}`} className='header-block'>{header}</span>
+          <div key={`header-${index}`}>
+            <span className='header-block'>{header}</span>
           </div>
         ))}
       </div>
