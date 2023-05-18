@@ -19,6 +19,10 @@ export const selectCategoriesMap = createSelector(
   }, {})
 );
 
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
 
 /*
 When selectCategoriesMap is evaluated (in useSelector hook) it first checks,
