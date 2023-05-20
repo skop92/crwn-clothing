@@ -21,24 +21,11 @@ const SignInForm = () => {
     setFormFields(defaultFormFields);
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    try {
-      dispatch(emailSignInStart(email, password));
-      resetFormFields();
-    } catch(error) {
-      switch(error.code) {
-        case 'auth/wrong-password':
-          console.log('Incorrect email or password');
-          break;
-        case 'auth/user-not-found':
-          console.log('Incorrect email or password');
-          break;
-        default:
-          console.log('Error when signing in with email and password', error);
-      }
-    }
+    dispatch(emailSignInStart(email, password));
+    resetFormFields();
   }
 
   const handleChange = (event) => {
