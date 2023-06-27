@@ -11,7 +11,7 @@ import { signOutStart } from '../../store/user/user.action';
 
 import { ReactComponent as CrawnLogo } from '../../assets/crown.svg';
 
-import { NavContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles.jsx';
+import { NavContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles';
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);

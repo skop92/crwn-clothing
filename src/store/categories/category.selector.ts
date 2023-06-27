@@ -1,7 +1,10 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
+
+import { CategoriesState } from './category.reducer';
+import { CategoryMap } from './category.types';
 
 // Initial selector
-const selectCategoryReducer = state => state.categories;
+const selectCategoryReducer = (state): CategoriesState => state.categories;
 
 // Memoi selector
 // This does not run the callback if selectCategoryReducer has not changed
@@ -12,11 +15,11 @@ const selectCategories = createSelector(
 
 export const selectCategoriesMap = createSelector(
   [selectCategories],
-  (categories) => categories.reduce((acc, category) => {
+  (categories): CategoryMap => categories.reduce((acc, category) => {
     const { title, items } = category;
     acc[title.toLowerCase()] = items;
     return acc;
-  }, {})
+  }, {} as CategoryMap)
 );
 
 export const selectCategoriesIsLoading = createSelector(
