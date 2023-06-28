@@ -48,25 +48,3 @@ export const categoriesReducer = (
 
   return state;
 };
-  // Previous version
-  // switch(action.type) {
-  //   case CATEGORY_ACTION_TYPES.FETCH_CATEGORIES_START:
-  //     return {
-  //       ...state,
-  //       isLoading: true,
-  //     }
-  //   case CATEGORY_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS:
-  //     return {
-  //       ...state,
-  //       categories: action.payload,
-  //       isLoading: false,
-  //     };
-  //   case CATEGORY_ACTION_TYPES.FETCH_CATEGORIES_FAILED:
-  //     return {
-  //       ...state,
-  //       error: action.payload,
-  //       isLoading: false,
-  //     }
-  //   default:
-  //     return state;
-  // };

@@ -7,8 +7,8 @@ import {
 } from './cart.action';
 
 export type CartState = {
-  cartItems: CartItem[];
-  isCartOpen: boolean;
+  readonly cartItems: CartItem[];
+  readonly isCartOpen: boolean;
 }
 
 const CART_INITIAL_STATE: CartState = {

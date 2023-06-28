@@ -1,10 +1,11 @@
 import { createSelector } from 'reselect';
 
+import { RootState } from '../store';
 import { CategoriesState } from './category.reducer';
 import { CategoryMap } from './category.types';
 
 // Initial selector
-const selectCategoryReducer = (state): CategoriesState => state.categories;
+const selectCategoryReducer = (state: RootState): CategoriesState => state.categories;
 
 // Memoi selector
 // This does not run the callback if selectCategoryReducer has not changed
