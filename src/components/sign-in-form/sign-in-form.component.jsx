@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
-import { gooleSignInStart, emailSignInStart } from '../../store/user/user.action';
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles.jsx';
 
@@ -34,7 +34,7 @@ const SignInForm = () => {
   }
 
   const signInWithGoogle = () => {
-    dispatch(gooleSignInStart());
+    dispatch(googleSignInStart());
   }
 
   return (
