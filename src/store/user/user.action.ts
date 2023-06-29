@@ -1,8 +1,7 @@
 import { USER_ACTION_TYPES } from './user.types';
 import { createAction, Action, ActionWithPayload, withMatcher } from '../../utils/reducer/reducer.utils';
 import { AdditionalInformation, UserData } from '../../utils/firebase/firebase.utils';
-import { UserCredential } from 'firebase/auth';
-import { QueryDocumentSnapshot } from 'firebase/firestore';
+import { User } from 'firebase/auth';
 
 export type CheckUserSession = Action<USER_ACTION_TYPES.CHECK_USER_SESSION>;
 
@@ -15,7 +14,7 @@ export type EmailSignInStart = ActionWithPayload<
 
 export type SignInSuccess = ActionWithPayload<
   USER_ACTION_TYPES.SIGN_IN_SUCCESS,
-  QueryDocumentSnapshot<UserData>
+  UserData
 >;
 
 export type SignInFailed = ActionWithPayload<
@@ -34,7 +33,7 @@ export type SignUpStart = ActionWithPayload<
 
 export type SignUpSuccess = ActionWithPayload<
   USER_ACTION_TYPES.SIGN_UP_SUCCESS,
-  { user: Promise<UserCredential | undefined>; additionalInformation: AdditionalInformation; }
+  { user: User; additionalInformation: AdditionalInformation; }
 >;
 
 export type SignUpFailed = ActionWithPayload<
@@ -60,7 +59,7 @@ export const googleSignInStart = withMatcher((): GoogleSignInStart =>
 export const emailSignInStart = withMatcher((email: string, password: string): EmailSignInStart =>
   createAction(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, { email, password }));
 
-export const signInSuccess = withMatcher((user: QueryDocumentSnapshot<UserData>): SignInSuccess =>
+export const signInSuccess = withMatcher((user: UserData & { id: string }): SignInSuccess =>
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user));
 
 export const signInFailed = withMatcher((error: Error): SignInFailed =>
@@ -75,7 +74,7 @@ export const signUpStart = withMatcher((
 );
 
 export const signUpSuccess = withMatcher((
-  user: Promise<UserCredential | undefined>,
+  user: User,
   additionalInformation: AdditionalInformation,
 ): SignUpSuccess =>
   createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, { user, additionalInformation })

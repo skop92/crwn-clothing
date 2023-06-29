@@ -1,5 +1,4 @@
 import { AnyAction } from 'redux';
-import { QueryDocumentSnapshot } from 'firebase/firestore';
 import { UserData } from '../../utils/firebase/firebase.utils';
 
 import {
@@ -14,7 +13,7 @@ import {
 } from './user.action';
 
 export type UserState = {
-  readonly currentUser: QueryDocumentSnapshot<UserData> | null;
+  readonly currentUser: UserData | null;
   readonly isLoading: boolean;
   readonly error: Error | null;
 };
