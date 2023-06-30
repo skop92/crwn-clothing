@@ -7,7 +7,7 @@ import Spinner from '../../components/spinner/spinner.component';
 
 import { selectCategoriesMap, selectCategoriesIsLoading } from '../../store/categories/category.selector';
 
-import { CategoryContainer, CategoryTitle } from './category.styles.jsx';
+import { CategoryContainer, CategoryTitle } from './category.styles';
 
 type CategoryRouteParams = {
   category: string;

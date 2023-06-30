@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import { Link, LinkProps, To } from 'react-router-dom';
 import { FC } from 'react';
 
+type NavLinkProps = Omit<LinkProps, "to"> & {
+  to?: To;
+  as?: string;
+}
+
+// Alternatives
+
 // type NavLinkProps = {
 //   as?: string;
 //   to?: string;
@@ -9,10 +16,6 @@ import { FC } from 'react';
 // & AnchorHTMLAttributes<LinkProps>; // Somehow works as well
 
 // type NavLinkProps = Omit<LinkHTMLAttributes<HTMLAnchorElement>, "to"> & {to?: To}
-type NavLinkProps = Omit<LinkProps, "to"> & {
-  to?: To;
-  as?: string;
-}
 
 export const NavContainer = styled.div`
   height: 70px;
