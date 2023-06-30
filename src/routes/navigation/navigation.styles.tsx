@@ -1,5 +1,18 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps, To } from 'react-router-dom';
+import { FC } from 'react';
+
+// type NavLinkProps = {
+//   as?: string;
+//   to?: string;
+// } & LinkHTMLAttributes<LinkProps>;
+// & AnchorHTMLAttributes<LinkProps>; // Somehow works as well
+
+// type NavLinkProps = Omit<LinkHTMLAttributes<HTMLAnchorElement>, "to"> & {to?: To}
+type NavLinkProps = Omit<LinkProps, "to"> & {
+  to?: To;
+  as?: string;
+}
 
 export const NavContainer = styled.div`
   height: 70px;
@@ -23,7 +36,7 @@ export const NavLinks = styled.div`
   justify-content: flex-end;
 `
 
-export const NavLink = styled(Link)`
+export const NavLink: FC<NavLinkProps> = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 `
